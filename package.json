@@ -1,0 +1,49 @@
+{
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "server": "nodemon ../backend/server.js",
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
+    "axios": "^1.7.4",
+    "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.4",
+    "cors": "^2.8.5",
+    "date-fns": "^3.6.0",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.4",
+    "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^7.3.0",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
+    "react-router-bootstrap": "^0.26.3",
+    "react-router-dom": "^6.26.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "nodemon": "^3.1.4",
+    "vite": "^5.3.4"
+  }
+}

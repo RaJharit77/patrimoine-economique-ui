@@ -18,7 +18,7 @@ export default defineConfig({
       },
     },
   },
-  root: './',
+  root: './ui',
   build: {
     outDir: 'dist',
     rollupOptions: {

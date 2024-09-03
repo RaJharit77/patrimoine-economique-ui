@@ -15,12 +15,10 @@ const PossessionList = () => {
     const [possessionsData, setPossessionsData] = useState([]);
     const navigate = useNavigate();
 
-    const apiUrl = process.env.REACT_APP_API_URL;
-
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${apiUrl}/api/possession`);
+                const response = await axios.get('http://localhost:5000/api/possession');
                 setPossessionsData(response.data);
             } catch (error) {
                 console.error('Erreur lors de la récupération des données :', error);
@@ -36,7 +34,7 @@ const PossessionList = () => {
 
     const handleClosePossession = async (libelle) => {
         try {
-            await axios.put(`${apiUrl}/api/possession/${libelle}/close`);
+            await axios.put(`http://localhost:5000/api/possession/${libelle}/close`);
             const updatedData = possessionsData.map(possession => {
                 if (possession.libelle === libelle) {
                     return { ...possession, dateFin: new Date().toISOString().split('T')[0] };
@@ -52,7 +50,7 @@ const PossessionList = () => {
     const handleDelete = async (libelle) => {
         console.log(`Suppression de ${libelle}`);
         try {
-            await axios.delete(`${apiUrl}/api/possession/${libelle}`);
+            await axios.delete(`http://localhost:5000/api/possession/${libelle}`);
             setPossessionsData(possessionsData.filter(possession => possession.libelle !== libelle));
         } catch (error) {
             console.error('Erreur lors de la suppression de la possession:', error.message);

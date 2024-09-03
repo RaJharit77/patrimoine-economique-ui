@@ -37,8 +37,6 @@ function PatrimoineChart() {
     const [selectedDate, setSelectedDate] = useState(null);
     const [jour, setJour] = useState('');
 
-    const apiUrl = process.env.REACT_APP_API_URL;
-
     const handleValidateRange = async () => {
         if (!dateDebut || !dateFin || !jour) {
             alert('Veuillez remplir toutes les informations pour la période.');
@@ -46,7 +44,7 @@ function PatrimoineChart() {
         }
         try {
             console.log("Envoi de la demande au backend...");
-            const response = await axios.post(`${apiUrl}/api/patrimoine/range`, {
+            const response = await axios.post('http://localhost:5000/api/patrimoine/range', {
                 type: 'month',
                 dateDebut: dateDebut.toISOString(),
                 dateFin: dateFin.toISOString(),
@@ -80,7 +78,7 @@ function PatrimoineChart() {
             return;
         }
         try {
-            const response = await axios.get(`${apiUrl}/api/patrimoine/${selectedDate.toISOString().split('T')[0]}`);
+            const response = await axios.get(`http://localhost:5000/api/patrimoine/${selectedDate.toISOString().split('T')[0]}`);
 
             setChartData({
                 labels: ['Date Sélectionnée'],

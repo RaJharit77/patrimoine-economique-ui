@@ -21,8 +21,5 @@ export default defineConfig({
   root: './ui',
   build: {
     outDir: 'dist',
-    rollupOptions: {
-      input: 'index.html'
-    },
   }
 });

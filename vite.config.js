@@ -12,7 +12,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://patrimoine-economique-a47v.onrender.com',
         changeOrigin: true,
         secure: false,
       },
@@ -24,8 +24,5 @@ export default defineConfig({
     rollupOptions: {
       input: 'index.html'
     },
-  },
-  server: {
-    port: 5000,
   }
 });

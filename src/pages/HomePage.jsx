@@ -1,9 +1,9 @@
+import data from '@data/data.json';
 import { Button, Container, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import data from '../../../data/data.json';
 
 const HomePage = () => {
     const [userName, setUserName] = useState('');

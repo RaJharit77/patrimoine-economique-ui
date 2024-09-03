@@ -16,10 +16,12 @@ const UpdatePossession = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    const apiUrl = import.meta.env.VITE_API_URL;
+
     useEffect(() => {
         const fetchPossession = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/possession/${libelleEncoded}`);
+                const response = await axios.get(`${apiUrl}/api/possession/${libelleEncoded}`);
                 if (response.data) {
                     setLibelleUpdated(response.data.libelle);
                     setValeur(response.data.valeur);
@@ -40,7 +42,7 @@ const UpdatePossession = () => {
     const updatePossession = async () => {
         setLoading(true);
         try {
-            await axios.put(`http://localhost:5000/api/possession/${libelleEncoded}`, {
+            await axios.put(`${apiUrl}/api/possession/${libelleEncoded}`, {
                 libelle: libelleUpdated,
                 valeur,
                 dateDebut,

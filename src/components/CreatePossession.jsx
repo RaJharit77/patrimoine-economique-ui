@@ -12,6 +12,8 @@ function CreatePossession() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
+    const apiUrl = import.meta.env.VITE_API_URL;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -21,7 +23,7 @@ function CreatePossession() {
         }
 
         try {
-            await axios.post('http://localhost:5000/api/possession/create', {
+            await axios.post(`${apiUrl}/api/possession/create`, {
                 possesseur: { nom: nomComplet },
                 libelle,
                 valeur,

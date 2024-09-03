@@ -49,7 +49,7 @@ const HomePage = () => {
             }}
         >
             <Typography variant="h4" sx={{ mb: 2 }}>
-                Bienvenue sur le site de gestion de la patrimoine Mr {userName}
+                Bienvenue sur le site de gestion de la patrimoine M. {userName}
             </Typography>
 
             <Button

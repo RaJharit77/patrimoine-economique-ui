@@ -24,5 +24,8 @@ export default defineConfig({
     rollupOptions: {
       input: 'index.html'
     },
+  },
+  server: {
+    port: 5000,
   }
 });

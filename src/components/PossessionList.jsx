@@ -15,7 +15,7 @@ const PossessionList = () => {
     const [possessionsData, setPossessionsData] = useState([]);
     const navigate = useNavigate();
 
-    const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-3kl2.onrender.com';
+    const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-backend.onrender.com';
 
     useEffect(() => {
         const fetchData = async () => {

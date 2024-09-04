@@ -37,7 +37,7 @@ function PatrimoineChart() {
     const [selectedDate, setSelectedDate] = useState(null);
     const [jour, setJour] = useState('');
 
-    const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-3kl2.onrender.com';
+    const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-backend.onrender.com';
 
     const handleValidateRange = async () => {
         if (!dateDebut || !dateFin || !jour) {

@@ -18,6 +18,7 @@ function App() {
                 <Route path="/possession/create" element={<CreatePossession />} />
                 <Route path="/patrimoine" element={<PatrimoinePage />} />
                 <Route path="/possession/:libelle/update" element={<UpdatePossession />} />
+                <Route path="*" component={NotFound} />
             </Routes>
         </Router>
     );

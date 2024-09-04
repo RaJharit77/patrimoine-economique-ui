@@ -1,4 +1,3 @@
-import data from '@data/data.json';
 import { Button, Container, Grid, Typography } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -14,8 +13,11 @@ const HomePage = () => {
     }, []);
 
     useEffect(() => {
-        const fetchUserName = () => {
+        const fetchUserName = async () => {
             try {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/data`);
+                const data = await response.json();
+                
                 const personneData = data.filter(item => item.model === 'Personne');
 
                 if (personneData.length > 0 && personneData[0].data && personneData[0].data.nom) {

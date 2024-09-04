@@ -17,7 +17,7 @@ const HomePage = () => {
     useEffect(() => {
         const fetchUserName = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/data`);
+                const response = await fetch(`${apiUrl}/api/data`);
                 const data = await response.json();
 
                 const personneData = data.filter(item => item.model === 'Personne');

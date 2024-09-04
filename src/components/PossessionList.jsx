@@ -15,7 +15,7 @@ const PossessionList = () => {
     const [possessionsData, setPossessionsData] = useState([]);
     const navigate = useNavigate();
 
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = process.env.REACT_APP_API_URL || 'https://patrimoine-economique-3kl2.onrender.com';
 
     useEffect(() => {
         const fetchData = async () => {

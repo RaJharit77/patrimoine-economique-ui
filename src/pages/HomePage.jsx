@@ -12,12 +12,14 @@ const HomePage = () => {
         AOS.init({ duration: 1000 });
     }, []);
 
+    const apiUrl = process.env.REACT_APP_API_URL || 'https://patrimoine-economique-3kl2.onrender.com';
+
     useEffect(() => {
         const fetchUserName = async () => {
             try {
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/api/data`);
                 const data = await response.json();
-                
+
                 const personneData = data.filter(item => item.model === 'Personne');
 
                 if (personneData.length > 0 && personneData[0].data && personneData[0].data.nom) {

@@ -37,7 +37,7 @@ function PatrimoineChart() {
     const [selectedDate, setSelectedDate] = useState(null);
     const [jour, setJour] = useState('');
 
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = process.env.REACT_APP_API_URL || 'https://patrimoine-economique-3kl2.onrender.com';
 
     const handleValidateRange = async () => {
         if (!dateDebut || !dateFin || !jour) {

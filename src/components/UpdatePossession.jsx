@@ -16,7 +16,7 @@ const UpdatePossession = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = process.env.REACT_APP_API_URL || 'https://patrimoine-economique-3kl2.onrender.com';
 
     useEffect(() => {
         const fetchPossession = async () => {

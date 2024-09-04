@@ -19,13 +19,13 @@ const HomePage = () => {
             try {
                 const response = await fetch(`${apiUrl}/api/data`);
                 console.log('Response:', response);
-                
+
                 const data = await response.json();
                 console.log('Data:', data);
-    
+
                 const personneData = data.filter(item => item.model === 'Personne');
                 console.log('Personne Data:', personneData);
-    
+
                 if (personneData.length > 0 && personneData[0].data && personneData[0].data.nom) {
                     setUserName(personneData[0].data.nom);
                 } else {
@@ -35,9 +35,9 @@ const HomePage = () => {
                 console.error('Erreur lors de la récupération du nom de l\'utilisateur', error);
             }
         };
-    
+
         fetchUserName();
-    }, []);    
+    }, []);
 
     const handleButtonClick = () => {
         setShowButtons(!showButtons);
@@ -57,7 +57,7 @@ const HomePage = () => {
             }}
         >
             <Typography variant="h4" sx={{ mb: 2 }}>
-                Bienvenue sur le site de gestion de la patrimoine M. {userName}
+                {userName ? `Bienvenue sur le site de gestion de la patrimoine M. ${userName}` : 'Chargement...'}
             </Typography>
 
             <Button

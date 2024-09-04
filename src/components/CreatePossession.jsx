@@ -12,7 +12,7 @@ function CreatePossession() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    const apiUrl = import.meta.env.REACT_APP_API_URL || 'https://patrimoine-economique-3kl2.onrender.com';
+    const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-3kl2.onrender.com';
 
     const handleSubmit = async (e) => {
         e.preventDefault();

@@ -12,7 +12,7 @@ const HomePage = () => {
         AOS.init({ duration: 1000 });
     }, []);
 
-    const apiUrl = process.env.REACT_APP_API_URL || 'https://patrimoine-economique-3kl2.onrender.com';
+    const apiUrl = import.meta.env.REACT_APP_API_URL || 'https://patrimoine-economique-3kl2.onrender.com';
 
     useEffect(() => {
         const fetchUserName = async () => {

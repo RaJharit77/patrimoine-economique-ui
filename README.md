@@ -1,1 +1,8 @@
-# patrimoine-economique-ui
+### Gestion du Patrimoine avec UI(IU)
+
+## Projet avec React + Vite + React Bootstrap + Express JS + Chart.JS
+
+Ce projet est à propos du gestionnaire de patrimoine économique d'un étudiant chez HEI.
+
+## patrimoine-economique-ui
+Repository pour l'UI(interface utilisateur) de la gestion du patrimoine

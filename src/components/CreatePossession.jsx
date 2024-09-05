@@ -31,7 +31,7 @@ function CreatePossession() {
                 taux
             });
 
-            navigate('/possession');
+            navigate('/possession?updated=true');
         } catch (error) {
             setError('Une erreur est survenue lors de la création de la possession.');
         }
@@ -48,50 +48,6 @@ function CreatePossession() {
                     <h2 className="text-center mb-4">Créer une nouvelle possession</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Nom Complet</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={nomComplet}
-                                onChange={(e) => setNomComplet(e.target.value)}
-                                placeholder="Entrez le nom complet du possesseur"
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Libelle</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={libelle}
-                                onChange={(e) => setLibelle(e.target.value)}
-                                placeholder="Entrez le libelle"
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Valeur</Form.Label>
-                            <Form.Control
-                                type="number"
-                                value={valeur}
-                                onChange={(e) => setValeur(e.target.value)}
-                                placeholder="Entrez la valeur"
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Date de début</Form.Label>
-                            <Form.Control
-                                type="date"
-                                value={dateDebut}
-                                onChange={(e) => setDateDebut(e.target.value)}
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Taux d'Amortissement</Form.Label>
-                            <Form.Control
-                                type="number"
-                                value={taux}
-                                onChange={(e) => setTaux(e.target.value)}
-                                placeholder="Entrez le taux d'Amortissement"
-                            />
-                        </Form.Group>
                         <Button variant="primary" type="submit" className="w-100 mb-2">
                             Créer
                         </Button>

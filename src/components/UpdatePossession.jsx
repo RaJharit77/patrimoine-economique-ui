@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { default as React, default as React, useEffect, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -107,7 +107,7 @@ const UpdatePossession = () => {
                     <Form.Control
                         type="number"
                         value={taux}
-                        onChange={(e) => setTaux(e.target.value)} 
+                        onChange={(e) => setTaux(e.target.value)}
                     />
                 </Form.Group>
 

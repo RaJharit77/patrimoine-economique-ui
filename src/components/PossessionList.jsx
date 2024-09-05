@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Table } from 'react-bootstrap';
 import { FaEdit, FaTimesCircle, FaTrash } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const calculateCurrentValue = (possession) => {
     const startDate = new Date(possession.dateDebut);
@@ -14,21 +14,22 @@ const calculateCurrentValue = (possession) => {
 const PossessionList = () => {
     const [possessionsData, setPossessionsData] = useState([]);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-backend.onrender.com';
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`${apiUrl}/api/possession`);
-                setPossessionsData(response.data);
-            } catch (error) {
-                console.error('Erreur lors de la récupération des données :', error);
-            }
-        };
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`${apiUrl}/api/possession`);
+            setPossessionsData(response.data);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des données :', error);
+        }
+    };
 
+    useEffect(() => {
         fetchData();
-    }, []);
+    }, [location.search]);
 
     const handleEditPossession = (libelle) => {
         navigate(`/possession/${libelle}/update`);
@@ -37,23 +38,16 @@ const PossessionList = () => {
     const handleClosePossession = async (libelle) => {
         try {
             await axios.put(`${apiUrl}/api/possession/${libelle}/close`);
-            const updatedData = possessionsData.map(possession => {
-                if (possession.libelle === libelle) {
-                    return { ...possession, dateFin: new Date().toISOString().split('T')[0] };
-                }
-                return possession;
-            });
-            setPossessionsData(updatedData);
+            fetchData();
         } catch (error) {
             console.error('Erreur lors de la clôture de la possession :', error);
         }
     };
 
     const handleDelete = async (libelle) => {
-        console.log(`Suppression de ${libelle}`);
         try {
             await axios.delete(`${apiUrl}/api/possession/${libelle}`);
-            setPossessionsData(possessionsData.filter(possession => possession.libelle !== libelle));
+            fetchData();
         } catch (error) {
             console.error('Erreur lors de la suppression de la possession:', error.message);
         }

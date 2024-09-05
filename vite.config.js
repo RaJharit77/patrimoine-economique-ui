@@ -16,6 +16,7 @@ export default defineConfig({
         target: 'https://patrimoine-economique-backend.onrender.com',
         changeOrigin: true,
         secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   }

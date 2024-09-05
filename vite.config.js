@@ -13,7 +13,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://patrimoine-economique-3kl2.onrender.com',
+        target: 'https://patrimoine-economique-backend.onrender.com',
         changeOrigin: true,
         secure: false,
       },

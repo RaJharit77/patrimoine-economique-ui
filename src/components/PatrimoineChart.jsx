@@ -96,30 +96,6 @@ function PatrimoineChart() {
         }
     };
 
-    const calculatePatrimoine = (possessions, date) => {
-        return possessions.reduce((total, possession) => {
-            const dateDebut = new Date(possession.dateDebut);
-            const dateFin = possession.dateFin ? new Date(possession.dateFin) : null;
-            const currentDate = new Date(date);
-    
-            if (currentDate >= dateDebut && (!dateFin || currentDate <= dateFin)) {
-                total += possession.valeur;
-            }
-            return total;
-        }, 0);
-    };
-    
-    useEffect(() => {
-        if (selectedDate) {
-            const patrimoineValue = calculatePatrimoine(possessions, selectedDate);
-            setPatrimoine(patrimoineValue);
-        }
-    }, [selectedDate, possessions]);
-
-    const handleDateChange = (event) => {
-        setSelectedDate(event.target.value);
-    };
-
     return (
         <Container style={{ maxWidth: '900px', margin: '0 auto', paddingTop: '80px' }}>
             <h2>Patrimoine</h2>

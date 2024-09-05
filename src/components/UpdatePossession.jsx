@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { default as React, default as React, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 

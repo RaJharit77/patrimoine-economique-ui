@@ -45,14 +45,17 @@ function PatrimoineChart() {
             return;
         }
         try {
+            console.log("Envoi de la demande au backend...");
             const response = await axios.post(`${apiUrl}/api/patrimoine/range`, {
                 type: 'month',
                 dateDebut: dateDebut.toISOString(),
                 dateFin: dateFin.toISOString(),
                 jour
             });
+
             const months = response.data.map(entry => new Date(entry.date).toLocaleString('default', { month: 'short' }));
             const values = response.data.map(entry => entry.valeur);
+
             setChartData({
                 labels: months,
                 datasets: [
@@ -65,9 +68,9 @@ function PatrimoineChart() {
                     },
                 ],
             });
+            console.log("Response received:", response.data);
         } catch (error) {
             console.error("Erreur lors de la récupération des données :", error.response ? error.response.data : error.message);
-            alert("Erreur lors de la récupération des données. Veuillez réessayer.");
         }
     };
 
@@ -170,7 +173,6 @@ function PatrimoineChart() {
                     </div>
                 </Col>
             </Row>
-            <h3>Valeur du patrimoine à la date {selectedDate}: {patrimoine} €</h3>
         </Container>
     );
 }

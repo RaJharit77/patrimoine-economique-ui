@@ -28,6 +28,7 @@ function PatrimoineChart() {
                 fill: false,
                 borderColor: 'rgba(75,192,192,1)',
                 tension: 0.1,
+                pointRadius: 1
             },
         ],
     });
@@ -65,6 +66,7 @@ function PatrimoineChart() {
                         fill: false,
                         borderColor: 'rgba(75,192,192,1)',
                         tension: 0.1,
+                        pointRadius: 1
                     },
                 ],
             });
@@ -91,7 +93,7 @@ function PatrimoineChart() {
                         fill: false,
                         borderColor: 'rgba(75,192,192,1)',
                         tension: 0.1,
-                        pointRadius: 0,
+                        pointRadius: 1
                     },
                 ],
             });

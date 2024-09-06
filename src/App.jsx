@@ -20,6 +20,7 @@ function App() {
                 <Route path="/patrimoine" element={<PatrimoinePage />} />
                 <Route path="/possession/:libelle/update" element={<UpdatePossession />} />
                 <Route path="*" element={<NotFound />} />
+                <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
         </Router>
     );

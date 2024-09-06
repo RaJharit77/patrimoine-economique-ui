@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const UpdatePossession = () => {
@@ -63,61 +63,68 @@ const UpdatePossession = () => {
 
     return (
         <Container className="mt-5">
-            <h2>Mettre à jour la Possession</h2>
-            {error && <p className="text-danger">{error}</p>}
-            <Form>
-                <Form.Group controlId="formLibelle">
-                    <Form.Label>Libellé</Form.Label>
-                    <Form.Control
-                        type="text"
-                        value={libelleUpdated}
-                        onChange={(e) => setLibelleUpdated(e.target.value)}
-                    />
-                </Form.Group>
+            <Row className="justify-content-center">
+                <Col md={8} lg={6}>
+                    <h2 className="text-center mb-4">Mettre à jour la Possession</h2>
+                    {error && <Alert variant="danger">{error}</Alert>}
+                    <Form>
+                        <Form.Group controlId="formLibelle" className="mb-3">
+                            <Form.Label>Libellé</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={libelleUpdated}
+                                onChange={(e) => setLibelleUpdated(e.target.value)}
+                                placeholder="Entrez le libellé"
+                            />
+                        </Form.Group>
 
-                <Form.Group controlId="formValeur">
-                    <Form.Label>Valeur</Form.Label>
-                    <Form.Control
-                        type="number"
-                        value={valeur}
-                        onChange={(e) => setValeur(e.target.value)}
-                    />
-                </Form.Group>
+                        <Form.Group controlId="formValeur" className="mb-3">
+                            <Form.Label>Valeur</Form.Label>
+                            <Form.Control
+                                type="number"
+                                value={valeur}
+                                onChange={(e) => setValeur(e.target.value)}
+                                placeholder="Entrez la valeur"
+                            />
+                        </Form.Group>
 
-                <Form.Group controlId="formDateDebut">
-                    <Form.Label>Date Début</Form.Label>
-                    <Form.Control
-                        type="date"
-                        value={dateDebut}
-                        onChange={(e) => setDateDebut(e.target.value)}
-                    />
-                </Form.Group>
+                        <Form.Group controlId="formDateDebut" className="mb-3">
+                            <Form.Label>Date Début</Form.Label>
+                            <Form.Control
+                                type="date"
+                                value={dateDebut}
+                                onChange={(e) => setDateDebut(e.target.value)}
+                            />
+                        </Form.Group>
 
-                <Form.Group controlId="formDateFin">
-                    <Form.Label>Date Fin</Form.Label>
-                    <Form.Control
-                        type="date"
-                        value={dateFin}
-                        onChange={(e) => setDateFin(e.target.value)}
-                    />
-                </Form.Group>
+                        <Form.Group controlId="formDateFin" className="mb-3">
+                            <Form.Label>Date Fin</Form.Label>
+                            <Form.Control
+                                type="date"
+                                value={dateFin}
+                                onChange={(e) => setDateFin(e.target.value)}
+                            />
+                        </Form.Group>
 
-                <Form.Group controlId="formTaux">
-                    <Form.Label>Taux d'Amortissement</Form.Label>
-                    <Form.Control
-                        type="number"
-                        value={taux}
-                        onChange={(e) => setTaux(e.target.value)}
-                    />
-                </Form.Group>
+                        <Form.Group controlId="formTaux" className="mb-4">
+                            <Form.Label>Taux d'Amortissement</Form.Label>
+                            <Form.Control
+                                type="number"
+                                value={taux}
+                                onChange={(e) => setTaux(e.target.value)}
+                                placeholder="Entrez le taux d'amortissement"
+                            />
+                        </Form.Group>
 
-                <Button variant="primary" onClick={updatePossession} disabled={loading}>
-                    {loading ? 'Mise à jour en cours...' : 'Mettre à jour'}
-                </Button>
-                <Button variant="secondary" onClick={handleCancel} className="ms-2">
-                    Annuler
-                </Button>
-            </Form>
+                        <Button variant="primary" onClick={updatePossession} disabled={loading} className="w-100 mb-2">
+                            {loading ? 'Mise à jour en cours...' : 'Mettre à jour'}
+                        </Button>
+                        <Button variant="secondary" onClick={handleCancel} className="w-100">
+                            Annuler
+                        </Button>
+                    </Form>
+                </Col>
+            </Row>
         </Container>
     );
 };

@@ -44,7 +44,7 @@ function CreatePossession() {
     return (
         <Container className="my-5">
             <Row className="justify-content-center">
-                <Col md={6} lg={4}>
+                <Col xs={12} md={8} lg={6}>
                     <h2 className="text-center mb-4">Créer une nouvelle possession</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit}>

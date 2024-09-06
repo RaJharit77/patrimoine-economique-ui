@@ -10,7 +10,7 @@ export default defineConfig({
   resolve: {
     alias: {
       fs: 'browserify-fs',
-      '@data': '../../../data',
+      '@data': '../../../backend/data',
     },
   },
   server: {

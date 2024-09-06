@@ -28,7 +28,6 @@ function PatrimoineChart() {
                 fill: false,
                 borderColor: 'rgba(75,192,192,1)',
                 tension: 0.1,
-                pointRadius: 0, // Désactive l'affichage des points
             },
         ],
     });
@@ -37,7 +36,7 @@ function PatrimoineChart() {
     const [dateFin, setDateFin] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
     const [patrimoineValeur, setPatrimoineValeur] = useState(null);
-    const [selectedDay, setSelectedDay] = useState(null); // Ajout de la sélection du jour
+    const [selectedDay, setSelectedDay] = useState(null);
 
     const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-backend.onrender.com';
 
@@ -66,7 +65,6 @@ function PatrimoineChart() {
                         fill: false,
                         borderColor: 'rgba(75,192,192,1)',
                         tension: 0.1,
-                        pointRadius: 0, // Désactive les points pour le graphe
                     },
                 ],
             });
@@ -93,7 +91,7 @@ function PatrimoineChart() {
                         fill: false,
                         borderColor: 'rgba(75,192,192,1)',
                         tension: 0.1,
-                        pointRadius: 0, // Pas de point sur la date sélectionnée
+                        pointRadius: 0,
                     },
                 ],
             });
@@ -105,6 +103,7 @@ function PatrimoineChart() {
     return (
         <Container style={{ maxWidth: '900px', margin: '0 auto', paddingTop: '80px' }}>
             <h2>Patrimoine</h2>
+
             <Row className="mb-4 align-items-end">
                 <Col xs={6} md={3}>
                     <Form.Group>
@@ -151,6 +150,7 @@ function PatrimoineChart() {
                     </Button>
                 </Col>
             </Row>
+
             <Row>
                 <Col>
                     <div className="chart-container" style={{ height: '300px', position: 'relative' }}>
@@ -158,6 +158,7 @@ function PatrimoineChart() {
                     </div>
                 </Col>
             </Row>
+
             <Row className="mt-4 align-items-end justify-content-center">
                 <Col xs={6} md={4}>
                     <Form.Group>
@@ -177,6 +178,7 @@ function PatrimoineChart() {
                     </Button>
                 </Col>
             </Row>
+
             {patrimoineValeur !== null && (
                 <Row className="mt-4">
                     <Col className="text-center">

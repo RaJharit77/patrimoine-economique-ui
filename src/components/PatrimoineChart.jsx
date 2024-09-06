@@ -35,7 +35,7 @@ function PatrimoineChart() {
     const [dateDebut, setDateDebut] = useState(null);
     const [dateFin, setDateFin] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
-    const [patrimoineValeur, setPatrimoineValeur] = useState(null); 
+    const [patrimoineValeur, setPatrimoineValeur] = useState(null);
 
     const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-backend.onrender.com';
 
@@ -109,6 +109,7 @@ function PatrimoineChart() {
                             onChange={(date) => setDateDebut(date)}
                             className="form-control"
                             placeholderText="Sélectionner une date"
+                            dateFormat="dd/MM/yyyy"
                         />
                     </Form.Group>
                 </Col>
@@ -120,11 +121,12 @@ function PatrimoineChart() {
                             onChange={(date) => setDateFin(date)}
                             className="form-control"
                             placeholderText="Sélectionner une date"
+                            dateFormat="dd/MM/yyyy"
                         />
                     </Form.Group>
                 </Col>
-                <Col xs={12} md={4} className="d-flex align-items-end">
-                    <Button variant="primary" onClick={handleValidateRange} className="w-100">
+                <Col xs={12} md={4} className="d-flex justify-content-center align-items-end">
+                    <Button variant="primary" onClick={handleValidateRange} className="btn-sm">
                         Valider la période
                     </Button>
                 </Col>
@@ -147,20 +149,23 @@ function PatrimoineChart() {
                             onChange={(date) => setSelectedDate(date)}
                             className="form-control"
                             placeholderText="Sélectionner une date"
+                            dateFormat="dd/MM/yyyy"
                         />
                     </Form.Group>
                 </Col>
-                <Col xs={6} className="d-flex align-items-end">
-                    <Button variant="success" onClick={handleValidateDate} className="w-100">
+                <Col xs={6} className="d-flex justify-content-center align-items-end">
+                    <Button variant="success" onClick={handleValidateDate} className="btn-sm">
                         Valider la date
                     </Button>
                 </Col>
             </Row>
 
-            {patrimoineValeur && (
+            {patrimoineValeur !== null && (
                 <Row className="mt-4">
-                    <Col>
-                        <p>La valeur du patrimoine à la date sélectionnée est : <strong>{patrimoineValeur} Ar</strong></p>
+                    <Col className="text-center">
+                        <p style={{ fontSize: '1.2rem' }}>
+                            La valeur du patrimoine à la date sélectionnée est : <strong>{patrimoineValeur} Ar</strong>
+                        </p>
                     </Col>
                 </Row>
             )}

@@ -14,7 +14,6 @@ export default defineConfig({
     },
   },
   server: {
-    port: 5000,
     proxy: {
       '/api': {
         target: 'https://patrimoine-economique-backend.onrender.com',

@@ -36,11 +36,12 @@ function PatrimoineChart() {
     const [dateFin, setDateFin] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
     const [patrimoineValeur, setPatrimoineValeur] = useState(null);
+    const [selectedDay, setSelectedDay] = useState(null); // Ajout de la sélection de jour
 
     const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-backend.onrender.com';
 
     const handleValidateRange = async () => {
-        if (!dateDebut || !dateFin) {
+        if (!dateDebut || !dateFin || !selectedDay) {
             alert('Veuillez remplir toutes les informations pour la période.');
             return;
         }
@@ -49,6 +50,7 @@ function PatrimoineChart() {
                 type: 'month',
                 dateDebut: dateDebut.toISOString(),
                 dateFin: dateFin.toISOString(),
+                jour: selectedDay,
             });
 
             const months = response.data.map(entry => new Date(entry.date).toLocaleString('default', { month: 'short' }));
@@ -100,8 +102,8 @@ function PatrimoineChart() {
     return (
         <Container style={{ maxWidth: '900px', margin: '0 auto', paddingTop: '80px' }}>
             <h2>Patrimoine</h2>
-            <Row className="mb-4">
-                <Col xs={6} md={4}>
+            <Row className="mb-4 align-items-end">
+                <Col xs={6} md={3}>
                     <Form.Group>
                         <Form.Label>Date Début</Form.Label>
                         <DatePicker
@@ -113,7 +115,7 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col xs={6} md={4}>
+                <Col xs={6} md={3}>
                     <Form.Group>
                         <Form.Label>Date Fin</Form.Label>
                         <DatePicker
@@ -125,13 +127,22 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col xs={12} md={4} className="d-flex justify-content-center align-items-end">
+                <Col xs={6} md={3}>
+                    <Form.Group>
+                        <Form.Label>Jour</Form.Label>
+                        <Form.Control as="select" value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)}>
+                            <option value="">Sélectionner un jour</option>
+                            <option value="1">1</option>
+                            <option value="15">15</option>
+                        </Form.Control>
+                    </Form.Group>
+                </Col>
+                <Col xs={6} md={3} className="d-flex justify-content-center align-items-end">
                     <Button variant="primary" onClick={handleValidateRange} className="btn-sm">
                         Valider la période
                     </Button>
                 </Col>
             </Row>
-            
             <Row>
                 <Col>
                     <div className="chart-container" style={{ height: '300px', position: 'relative' }}>
@@ -139,9 +150,8 @@ function PatrimoineChart() {
                     </div>
                 </Col>
             </Row>
-            
-            <Row className="mt-4">
-                <Col xs={6}>
+            <Row className="mt-4 align-items-end justify-content-center">
+                <Col xs={6} md={4}>
                     <Form.Group>
                         <Form.Label>Date Sélectionnée</Form.Label>
                         <DatePicker
@@ -153,13 +163,12 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col xs={6} className="d-flex justify-content-center align-items-end">
+                <Col xs={6} md={4} className="d-flex justify-content-center align-items-end">
                     <Button variant="success" onClick={handleValidateDate} className="btn-sm">
                         Valider la date
                     </Button>
                 </Col>
             </Row>
-
             {patrimoineValeur !== null && (
                 <Row className="mt-4">
                     <Col className="text-center">

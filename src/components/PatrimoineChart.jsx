@@ -148,7 +148,7 @@ function PatrimoineChart() {
                 </Col>
             </Row>
 
-            <Row className="mt-4 align-items-center justify-content-center">
+            <Row className="mt-4 align-items-start justify-content-center">
                 <Col xs={6} md={4} className='text-center'>
                     <Form.Group>
                         <Form.Label>Date Sélectionnée</Form.Label>
@@ -161,7 +161,7 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col xs={6} md={4} className="d-flex justify-content-center align-items-center text-center">
+                <Col xs={6} md={4} className="d-flex justify-content-center align-items-end text-center">
                     <Button variant="success" onClick={handleValidateDate} className="btn-sm">
                         Valider la date
                     </Button>

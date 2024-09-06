@@ -101,7 +101,7 @@ function PatrimoineChart() {
         <Container style={{ maxWidth: '900px', margin: '0 auto', paddingTop: '80px' }}>
             <h2>Patrimoine</h2>
             <Row className="mb-4">
-                <Col>
+                <Col xs={6} md={4}>
                     <Form.Group>
                         <Form.Label>Date Début</Form.Label>
                         <DatePicker
@@ -112,7 +112,7 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col>
+                <Col xs={6} md={4}>
                     <Form.Group>
                         <Form.Label>Date Fin</Form.Label>
                         <DatePicker
@@ -123,12 +123,13 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col className="d-flex align-items-end">
-                    <Button variant="primary" onClick={handleValidateRange}>
+                <Col xs={12} md={4} className="d-flex align-items-end">
+                    <Button variant="primary" onClick={handleValidateRange} className="w-100">
                         Valider la période
                     </Button>
                 </Col>
             </Row>
+            
             <Row>
                 <Col>
                     <div className="chart-container" style={{ height: '300px', position: 'relative' }}>
@@ -136,8 +137,9 @@ function PatrimoineChart() {
                     </div>
                 </Col>
             </Row>
+            
             <Row className="mt-4">
-                <Col>
+                <Col xs={6}>
                     <Form.Group>
                         <Form.Label>Date Sélectionnée</Form.Label>
                         <DatePicker
@@ -148,16 +150,17 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col className="d-flex align-items-end">
-                    <Button variant="success" onClick={handleValidateDate}>
+                <Col xs={6} className="d-flex align-items-end">
+                    <Button variant="success" onClick={handleValidateDate} className="w-100">
                         Valider la date
                     </Button>
                 </Col>
             </Row>
+
             {patrimoineValeur && (
                 <Row className="mt-4">
                     <Col>
-                        <p>La valeur du patrimoine à la date sélectionnée est : <strong>{patrimoineValeur} €</strong></p>
+                        <p>La valeur du patrimoine à la date sélectionnée est : <strong>{patrimoineValeur} Ar</strong></p>
                     </Col>
                 </Row>
             )}

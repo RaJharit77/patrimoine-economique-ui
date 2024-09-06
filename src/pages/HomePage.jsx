@@ -25,9 +25,6 @@ const HomePage = () => {
 
                 const data = JSON.parse(text);
                 console.log('Data:', data);
-                /*
-                const data = await response.json();
-                console.log('Data:', data);*/
 
                 const personneData = data.filter(item => item.model === 'Personne');
                 console.log('Personne Data:', personneData);

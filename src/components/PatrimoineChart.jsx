@@ -35,13 +35,12 @@ function PatrimoineChart() {
     const [dateDebut, setDateDebut] = useState(null);
     const [dateFin, setDateFin] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
-    const [jour, setJour] = useState('');
+    const [patrimoineValeur, setPatrimoineValeur] = useState(null); 
 
     const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-backend.onrender.com';
 
-    // Fonction pour valider la plage de dates
     const handleValidateRange = async () => {
-        if (!dateDebut || !dateFin || !jour) {
+        if (!dateDebut || !dateFin) {
             alert('Veuillez remplir toutes les informations pour la période.');
             return;
         }
@@ -50,7 +49,6 @@ function PatrimoineChart() {
                 type: 'month',
                 dateDebut: dateDebut.toISOString(),
                 dateFin: dateFin.toISOString(),
-                jour
             });
 
             const months = response.data.map(entry => new Date(entry.date).toLocaleString('default', { month: 'short' }));
@@ -73,23 +71,21 @@ function PatrimoineChart() {
         }
     };
 
-    // Fonction pour valider une date spécifique
     const handleValidateDate = async () => {
         if (!selectedDate) {
             alert('Veuillez sélectionner une date.');
             return;
         }
         try {
-            // Envoi de la requête pour récupérer la valeur du patrimoine à la date sélectionnée
             const response = await axios.get(`${apiUrl}/api/patrimoine/${selectedDate.toISOString().split('T')[0]}`);
 
-            // Mise à jour des données du graphique pour afficher la valeur à cette date
+            setPatrimoineValeur(response.data.valeur);
             setChartData({
                 labels: ['Date Sélectionnée'],
                 datasets: [
                     {
                         label: 'Valeur du Patrimoine',
-                        data: [response.data.valeur],  // Affiche la valeur à la date sélectionnée
+                        data: [response.data.valeur],
                         fill: false,
                         borderColor: 'rgba(75,192,192,1)',
                         tension: 0.1,
@@ -104,8 +100,6 @@ function PatrimoineChart() {
     return (
         <Container style={{ maxWidth: '900px', margin: '0 auto', paddingTop: '80px' }}>
             <h2>Patrimoine</h2>
-            
-            {/* Section pour la sélection de la période */}
             <Row className="mb-4">
                 <Col>
                     <Form.Group>
@@ -129,31 +123,23 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col>
-                    <Form.Group>
-                        <Form.Label>Jour</Form.Label>
-                        <Form.Select value={jour} onChange={(e) => setJour(e.target.value)}>
-                            <option value="">Sélectionner un jour</option>
-                            <option value="1">Lundi</option>
-                            <option value="2">Mardi</option>
-                            <option value="3">Mercredi</option>
-                            <option value="4">Jeudi</option>
-                            <option value="5">Vendredi</option>
-                            <option value="6">Samedi</option>
-                            <option value="7">Dimanche</option>
-                        </Form.Select>
-                    </Form.Group>
-                </Col>
                 <Col className="d-flex align-items-end">
                     <Button variant="primary" onClick={handleValidateRange}>
                         Valider la période
                     </Button>
                 </Col>
             </Row>
-            <Row className="mb-4">
+            <Row>
+                <Col>
+                    <div className="chart-container" style={{ height: '300px', position: 'relative' }}>
+                        <Line data={chartData} options={{ responsive: true, maintainAspectRatio: false }} />
+                    </div>
+                </Col>
+            </Row>
+            <Row className="mt-4">
                 <Col>
                     <Form.Group>
-                        <Form.Label>Date</Form.Label>
+                        <Form.Label>Date Sélectionnée</Form.Label>
                         <DatePicker
                             selected={selectedDate}
                             onChange={(date) => setSelectedDate(date)}
@@ -168,13 +154,13 @@ function PatrimoineChart() {
                     </Button>
                 </Col>
             </Row>
-            <Row>
-                <Col>
-                    <div className="chart-container" style={{ height: '300px', position: 'relative' }}>
-                        <Line data={chartData} options={{ responsive: true, maintainAspectRatio: false }} />
-                    </div>
-                </Col>
-            </Row>
+            {patrimoineValeur && (
+                <Row className="mt-4">
+                    <Col>
+                        <p>La valeur du patrimoine à la date sélectionnée est : <strong>{patrimoineValeur} €</strong></p>
+                    </Col>
+                </Row>
+            )}
         </Container>
     );
 }

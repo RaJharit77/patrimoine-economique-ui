@@ -161,7 +161,7 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col xs={6} md={4} className="d-flex justify-content-center align-items-end text-center">
+                <Col xs={6} md={4} className="d-flex justify-content-center align-items-start text-center">
                     <Button variant="success" onClick={handleValidateDate} className="btn-sm">
                         Valider la date
                     </Button>

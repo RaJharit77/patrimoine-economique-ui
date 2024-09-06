@@ -96,7 +96,7 @@ function PatrimoineChart() {
             <Row className="mb-4 align-items-end">
                 <Col xs={6} md={3}>
                     <Form.Group>
-                        <Form.Label>Date Début</Form.Label>
+                        <Form.Label>Date de Début</Form.Label>
                         <DatePicker
                             selected={dateDebut}
                             onChange={(date) => setDateDebut(date)}
@@ -108,7 +108,7 @@ function PatrimoineChart() {
                 </Col>
                 <Col xs={6} md={3}>
                     <Form.Group>
-                        <Form.Label>Date Fin</Form.Label>
+                        <Form.Label>Date de Fin</Form.Label>
                         <DatePicker
                             selected={dateFin}
                             onChange={(date) => setDateFin(date)}
@@ -151,7 +151,7 @@ function PatrimoineChart() {
             <Row className="mt-4 align-items-end justify-content-center">
                 <Col xs={6} md={4} className='text-center'>
                     <Form.Group>
-                        <Form.Label>Date Sélectionnée</Form.Label>
+                        <Form.Label>Sélectionner une date</Form.Label>
                         <DatePicker
                             selected={selectedDate}
                             onChange={(date) => setSelectedDate(date)}

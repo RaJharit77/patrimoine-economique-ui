@@ -91,10 +91,10 @@ function PatrimoineChart() {
 
     return (
         <Container style={{ maxWidth: '900px', margin: '0 auto', paddingTop: '80px' }}>
-            <h2 className="text-center">Patrimoine</h2>
+            <h2>Patrimoine</h2>
 
-            <Row className="mb-4 justify-content-center">
-                <Col xs={12} md={3}>
+            <Row className="mb-4 align-items-end">
+                <Col xs={6} md={3}>
                     <Form.Group>
                         <Form.Label>Date Début</Form.Label>
                         <DatePicker
@@ -106,7 +106,7 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col xs={12} md={3}>
+                <Col xs={6} md={3}>
                     <Form.Group>
                         <Form.Label>Date Fin</Form.Label>
                         <DatePicker
@@ -118,7 +118,7 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col xs={12} md={3}>
+                <Col xs={6} md={3}>
                     <Form.Group>
                         <Form.Label>Jour de la semaine</Form.Label>
                         <Form.Control as="select" value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)}>
@@ -133,7 +133,7 @@ function PatrimoineChart() {
                         </Form.Control>
                     </Form.Group>
                 </Col>
-                <Col xs={12} md={3} className="text-center">
+                <Col xs={6} md={3} className="d-flex justify-content-center align-items-end">
                     <Button variant="primary" onClick={handleValidateRange} className="btn-sm">
                         Valider la période
                     </Button>
@@ -148,8 +148,8 @@ function PatrimoineChart() {
                 </Col>
             </Row>
 
-            <Row className="mt-4 justify-content-center">
-                <Col xs={12} md={4} className="text-center">
+            <Row className="mt-4 align-items-end justify-content-center">
+                <Col xs={6} md={4}>
                     <Form.Group>
                         <Form.Label>Date Sélectionnée</Form.Label>
                         <DatePicker
@@ -161,7 +161,7 @@ function PatrimoineChart() {
                         />
                     </Form.Group>
                 </Col>
-                <Col xs={12} md={4} className="text-center">
+                <Col xs={6} md={4} className="d-flex justify-content-center align-items-end">
                     <Button variant="success" onClick={handleValidateDate} className="btn-sm">
                         Valider la date
                     </Button>

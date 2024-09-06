@@ -134,7 +134,7 @@ function PatrimoineChart() {
                     </Form.Group>
                 </Col>
                 <Col xs={6} md={3} className="d-flex justify-content-center align-items-end">
-                    <Button variant="primary" onClick={handleValidateRange} className="btn-lg">
+                    <Button variant="primary" onClick={handleValidateRange} className="btn-sm">
                         Valider la période
                     </Button>
                 </Col>
@@ -162,7 +162,7 @@ function PatrimoineChart() {
                     </Form.Group>
                 </Col>
                 <Col xs={6} md={4} className="d-flex justify-content-center align-items-end">
-                    <Button variant="success" onClick={handleValidateDate} className="btn-lg">
+                    <Button variant="success" onClick={handleValidateDate} className="btn-sm">
                         Valider la date
                     </Button>
                 </Col>

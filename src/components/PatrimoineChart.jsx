@@ -28,7 +28,7 @@ function PatrimoineChart() {
                 fill: false,
                 borderColor: 'rgba(75,192,192,1)',
                 tension: 0.1,
-                pointRadius: 1
+                pointRadius: 1,
             },
         ],
     });
@@ -66,7 +66,7 @@ function PatrimoineChart() {
                         fill: false,
                         borderColor: 'rgba(75,192,192,1)',
                         tension: 0.1,
-                        pointRadius: 1
+                        pointRadius: 1,
                     },
                 ],
             });
@@ -84,19 +84,6 @@ function PatrimoineChart() {
             const response = await axios.get(`${apiUrl}/api/patrimoine/${selectedDate.toISOString().split('T')[0]}`);
 
             setPatrimoineValeur(response.data.valeur);
-            setChartData({
-                labels: ['Date Sélectionnée'],
-                datasets: [
-                    {
-                        label: 'Valeur du Patrimoine',
-                        data: [response.data.valeur],
-                        fill: false,
-                        borderColor: 'rgba(75,192,192,1)',
-                        tension: 0.1,
-                        pointRadius: 1
-                    },
-                ],
-            });
         } catch (error) {
             console.error("Erreur lors de la récupération des données :", error.response ? error.response.data : error.message);
         }

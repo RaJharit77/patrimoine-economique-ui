@@ -4,6 +4,9 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  build: {
+    outDir: 'dist',
+  },
   resolve: {
     alias: {
       fs: 'browserify-fs',
@@ -11,6 +14,7 @@ export default defineConfig({
     },
   },
   server: {
+    port: 5000,
     proxy: {
       '/api': {
         target: 'https://patrimoine-economique-backend.onrender.com',

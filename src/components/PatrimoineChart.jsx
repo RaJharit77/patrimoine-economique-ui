@@ -28,6 +28,7 @@ function PatrimoineChart() {
                 fill: false,
                 borderColor: 'rgba(75,192,192,1)',
                 tension: 0.1,
+                pointRadius: 0, // Désactive l'affichage des points
             },
         ],
     });
@@ -36,7 +37,7 @@ function PatrimoineChart() {
     const [dateFin, setDateFin] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
     const [patrimoineValeur, setPatrimoineValeur] = useState(null);
-    const [selectedDay, setSelectedDay] = useState(null); // Ajout de la sélection de jour
+    const [selectedDay, setSelectedDay] = useState(null); // Ajout de la sélection du jour
 
     const apiUrl = import.meta.env.VITE_APP_API_URL || 'https://patrimoine-economique-backend.onrender.com';
 
@@ -65,6 +66,7 @@ function PatrimoineChart() {
                         fill: false,
                         borderColor: 'rgba(75,192,192,1)',
                         tension: 0.1,
+                        pointRadius: 0, // Désactive les points pour le graphe
                     },
                 ],
             });
@@ -91,6 +93,7 @@ function PatrimoineChart() {
                         fill: false,
                         borderColor: 'rgba(75,192,192,1)',
                         tension: 0.1,
+                        pointRadius: 0, // Pas de point sur la date sélectionnée
                     },
                 ],
             });
@@ -129,11 +132,16 @@ function PatrimoineChart() {
                 </Col>
                 <Col xs={6} md={3}>
                     <Form.Group>
-                        <Form.Label>Jour</Form.Label>
+                        <Form.Label>Jour de la semaine</Form.Label>
                         <Form.Control as="select" value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)}>
                             <option value="">Sélectionner un jour</option>
-                            <option value="1">1</option>
-                            <option value="15">15</option>
+                            <option value="Lundi">Lundi</option>
+                            <option value="Mardi">Mardi</option>
+                            <option value="Mercredi">Mercredi</option>
+                            <option value="Jeudi">Jeudi</option>
+                            <option value="Vendredi">Vendredi</option>
+                            <option value="Samedi">Samedi</option>
+                            <option value="Dimanche">Dimanche</option>
                         </Form.Control>
                     </Form.Group>
                 </Col>

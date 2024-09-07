@@ -60,7 +60,7 @@ const PossessionList = () => {
     return (
         <Container className="my-5">
             <div className="text-center" style={{ width: '100%' }}>
-                <h2 style={{ marginBottom: '1.7cm' }}>Les Listes des Patrimoines</h2>
+                <h2 className="mb-5">Les Listes des Patrimoines</h2>
                 <Table striped bordered hover responsive className="mx-auto" style={{ maxWidth: '100%' }}>
                     <thead>
                         <tr>
@@ -100,13 +100,14 @@ const PossessionList = () => {
                         ))}
                     </tbody>
                 </Table>
-                <div className="d-flex justify-content-center mt-3">
+                <div className="d-flex justify-content-center mt-5">
                     <Button variant="success" onClick={handleCreatePossession}>
                         Créer une nouvelle possession
                     </Button>
                 </div>
             </div>
         </Container>
+
     );
 };
 

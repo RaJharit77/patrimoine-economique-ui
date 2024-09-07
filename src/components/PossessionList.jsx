@@ -60,7 +60,7 @@ const PossessionList = () => {
     return (
         <Container className="my-5">
             <div className="text-center" style={{ width: '100%' }}>
-                <h2 className="mb-4">Les Listes des Patrimoines</h2>
+                <h2 className="mb-5">Les Listes des Patrimoines</h2>
                 <Table striped bordered hover responsive className="mx-auto" style={{ maxWidth: '100%' }}>
                     <thead>
                         <tr>

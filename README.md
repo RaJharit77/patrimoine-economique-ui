@@ -7,4 +7,6 @@ Ce projet est à propos du gestionnaire de patrimoine économique d'un étudiant
 ## patrimoine-economique-ui
 Repository pour l'UI(interface utilisateur) de la gestion du patrimoine.
 
-Le lien du site de gestion de patrimoine économique: https://patrimoine-economique-ui.onrender.com
+Le lien du site de gestion de patrimoine économique déployer sur render(https://render.com): https://patrimoine-economique-ui.onrender.com
+
+Le lien du site de gestion de patrimoine économique déployer sur Vercel(https://vercel.com): https://patrimoine-economique-ui.vercel.app
